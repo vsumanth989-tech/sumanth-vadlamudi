@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vadlamudi Sumanth - Data Engineer Portfolio</title>
+    <meta name="description" content="Data Engineer with expertise in ETL pipelines, cloud architecture, and backend systems. MS in Information Systems from UMBC.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #06b6d4;
+            border: 3px solid #0f172a;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: -34px;
+            top: 16px;
+            bottom: -40px;
+            width: 2px;
+            background: linear-gradient(180deg, #06b6d4 0%, rgba(6, 182, 212, 0.2) 100%);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.3);
+        }
+        
+        .profile-image-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #06b6d4;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: #06b6d4;
+            color: #06b6d4;
+            transform: translateY(-2px);
+        }
+        
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #06b6d4 50%, transparent 100%);
+            margin: 4rem 0;
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">VS</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">Home</a>
+                    <a href="#about" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">About</a>
+                    <a href="#experience" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">Experience</a>
+                    <a href="#projects" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">Projects</a>
+                    <a href="#skills" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">Skills</a>
+                    <a href="#education" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">Education</a>
+                    <a href="#contact" class="nav-link text-sm text-slate-300 hover:text-cyan-400 transition-all duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            <!-- Profile Image Placeholder -->
+            <div class="mb-8 inline-block fade-in-up">
+                <div class="profile-image">
+                    <div class="profile-image-inner">
+                        VS
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 fade-in-up delay-100">
+                <span class="gradient-text">Vadlamudi Sumanth</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-cyan-400 mb-6 fade-in-up delay-200">
+                Data Engineer & Backend Systems Architect
+            </p>
+            
+            <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed fade-in-up delay-300">
+                Designing automated ETL pipelines and cloud-based data workflows that reduce processing time by 40%. 
+                Passionate about building scalable, production-ready solutions with Python, SQL, and AWS.
+            </p>
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12 fade-in-up delay-400">
+                <div class="stat-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-cyan-400 mb-1">3.4</div>
+                    <div class="text-sm text-slate-400">GPA</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-cyan-400 mb-1">2+</div>
+                    <div class="text-sm text-slate-400">Years Experience</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-cyan-400 mb-1">40%</div>
+                    <div class="text-sm text-slate-400">Efficiency Gain</div>
+                </div>
+                <div class="stat-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-cyan-400 mb-1">1M+</div>
+                    <div class="text-sm text-slate-400">Records Processed</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 fade-in-up delay-500">
+                <a href="#contact" class="gradient-bg px-8 py-3 rounded-lg text-white font-semibold hover:shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    Get In Touch
+                </a>
+                <a href="https://www.linkedin.com/in/sumanth-vadlamudi" target="_blank" class="card px-8 py-3 rounded-lg font-semibold border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text text-center">About Me</h2>
+            <div class="section-divider"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="md:col-span-2 card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Professional Summary</h3>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        Data Engineer with solid experience designing automated ETL pipelines and cloud-based data workflows 
+                        using Python, SQL, and AWS services. Delivered a scalable data ingestion system that reduced processing 
+                        time by 40% during a backend internship, and built RESTful APIs supporting real-time analytics for 
+                        departmental operations.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        Strong focus on data quality, scalable processing, and production-ready solutions. Seeking to apply 
+                        data engineering expertise to enable data-driven decision making and improve operational efficiency.
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="card p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-xs text-slate-400">Location</p>
+                                <p class="text-sm font-semibold text-slate-200">Maryland, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-xs text-slate-400">Education</p>
+                                <p class="text-sm font-semibold text-slate-200">MS Information Systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-xs text-slate-400">Specialization</p>
+                                <p class="text-sm font-semibold text-slate-200">ETL & Cloud</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text text-center">Professional Experience</h2>
+            <p class="text-center text-slate-400 mb-12">My journey in data engineering and backend development</p>
+            
+            <div class="relative pl-8 md:pl-16 space-y-12">
+                <!-- Experience Item 1 -->
+                <div class="relative timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="card p-8 rounded-2xl">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Office Assistant (Data & Systems Operations)</h3>
+                                <p class="text-lg text-slate-200 font-semibold">University of Maryland, Baltimore County</p>
+                                <p class="text-sm text-slate-400">Student Disability Services</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 text-left md:text-right">
+                                <p class="text-sm text-cyan-400 font-mono">Aug 2024 - Dec 2025</p>
+                                <p class="text-sm text-slate-400">Maryland, United States</p>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Designed and maintained structured operational datasets in Azure Data Factory and Azure SQL, enabling reliable data access for the department</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Scheduled and coordinated 50+ student appointments per month, improving system response times through optimized digital workflows</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Conducted exploratory data analysis identifying 30-35% spending surges during semester starts to support budgeting decisions</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Generated Power BI operational summaries improving workload planning and resource allocation</p>
+                            </li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="tech-badge">Azure Data Factory</span>
+                            <span class="tech-badge">Azure SQL</span>
+                            <span class="tech-badge">Power BI</span>
+                            <span class="tech-badge">Excel</span>
+                            <span class="tech-badge">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="relative timeline-item">
+                    <div class="card p-8 rounded-2xl">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-cyan-400 mb-2">Software Engineer Intern</h3>
+                                <p class="text-lg text-slate-200 font-semibold">Covalensedigital</p>
+                                <p class="text-sm text-slate-400">Backend, Data & Web Systems</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 text-left md:text-right">
+                                <p class="text-sm text-cyan-400 font-mono">May 2022 - Nov 2023</p>
+                                <p class="text-sm text-slate-400">Hyderabad, India</p>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Built RESTful APIs with Python and Flask, reducing integration errors and streamlining communication</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Optimized SQL queries on AWS RDS resulting in faster query performance and reliable data retrieval</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Developed data-cleaning pipelines in Java using Apache Spark and DynamoDB, streamlining data preparation</p>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-slate-300 leading-relaxed">Collaborated with senior engineers optimizing performance through batch processing using NumPy</p>
+                            </li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">AWS RDS</span>
+                            <span class="tech-badge">Apache Spark</span>
+                            <span class="tech-badge">DynamoDB</span>
+                            <span class="tech-badge">Java</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text text-center">Featured Projects</h2>
+            <p class="text-center text-slate-400 mb-12">Innovative data engineering and machine learning solutions</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="card p-8 rounded-2xl">
+                    <div class="project-icon">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-3">Cloud-Scale Financial Transaction Data Pipeline</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Designed and implemented an automated ETL pipeline to ingest and process 1M+ financial transaction 
+                        records with validation and transformation logic.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg mb-4 border border-cyan-500/20">
+                        <p class="text-sm text-cyan-400 font-semibold mb-1">Key Achievement:</p>
+                        <p class="text-sm text-slate-200">40% improvement in data availability and reporting efficiency</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Python</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">AWS</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">ETL</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Data Validation</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card p-8 rounded-2xl">
+                    <div class="project-icon">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-3">Enterprise Data Quality Monitoring Platform</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Built an automated data quality framework to detect null values, duplicates, and schema 
+                        inconsistencies through continuous validation and monitoring.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg mb-4 border border-cyan-500/20">
+                        <p class="text-sm text-cyan-400 font-semibold mb-1">Key Achievement:</p>
+                        <p class="text-sm text-slate-200">99%+ data accuracy for downstream analytics</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Python</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Data Quality</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Monitoring</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Automation</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card p-8 rounded-2xl">
+                    <div class="project-icon">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-3">NLP-Driven Resume & Job Matching Engine</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Developed NLP pipelines to extract skills and keywords from resumes and job descriptions, 
+                        with ML models to calculate job-fit scores based on skills and experience.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg mb-4 border border-cyan-500/20">
+                        <p class="text-sm text-cyan-400 font-semibold mb-1">Key Achievement:</p>
+                        <p class="text-sm text-slate-200">Enhanced candidate matching accuracy</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Python</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">NLP</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Machine Learning</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Scikit-learn</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card p-8 rounded-2xl">
+                    <div class="project-icon">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-3">Graduate Job Market Intelligence & Salary Prediction</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                        Built scalable ETL pipelines to collect and process 10,000+ job postings from multiple sources 
+                        with salary prediction models and skills analysis.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg mb-4 border border-cyan-500/20">
+                        <p class="text-sm text-cyan-400 font-semibold mb-1">Key Achievement:</p>
+                        <p class="text-sm text-slate-200">78% prediction accuracy with in-demand skills identification</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">ETL</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">NLP</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Machine Learning</span>
+                        <span class="px-3 py-1 bg-slate-800/80 rounded-full text-xs text-slate-300 border border-slate-700">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text text-center">Technical Skills</h2>
+            <p class="text-center text-slate-400 mb-12">Comprehensive toolkit for data engineering and analytics</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Programming</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Data Engineering</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">ETL/ELT</span>
+                        <span class="tech-badge">Data Ingestion</span>
+                        <span class="tech-badge">Transformation</span>
+                        <span class="tech-badge">Workflows</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Cloud Platforms</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Azure</span>
+                        <span class="tech-badge">GCP</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Databases</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">DynamoDB</span>
+                        <span class="tech-badge">Oracle</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Big Data</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Hadoop</span>
+                        <span class="tech-badge">Apache Spark</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Analytics & ML</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">NLP</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Visualization</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">Tableau</span>
+                        <span class="tech-badge">Matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">Backend & APIs</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">REST APIs</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">Maven</span>
+                    </div>
+                </div>
+
+                <div class="card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-cyan-400">DevOps & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">CI/CD</span>
+                        <span class="tech-badge">Jenkins</span>
+                        <span class="tech-badge">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text text-center">Education</h2>
+            <p class="text-center text-slate-400 mb-12">Academic excellence in information systems and computer science</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-cyan-400 mb-1">Master of Science</h3>
+                            <p class="text-lg text-slate-200">Information Systems</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-3 font-semibold">University of Maryland, Baltimore County</p>
+                    <div class="flex items-center gap-4">
+                        <span class="px-4 py-2 bg-cyan-500/20 rounded-lg text-cyan-400 font-semibold">GPA: 3.4 / 4.0</span>
+                    </div>
+                </div>
+                
+                <div class="card p-8 rounded-2xl">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-cyan-400 mb-1">Bachelor of Technology</h3>
+                            <p class="text-lg text-slate-200">Computer Science</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-3 font-semibold">GITAM University, India</p>
+                    <div class="flex items-center gap-4">
+                        <span class="px-4 py-2 bg-cyan-500/20 rounded-lg text-cyan-400 font-semibold">GPA: 3.4 / 4.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-slate-900/30">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Let's Connect</h2>
+            <p class="text-lg text-slate-300 mb-12">
+                Interested in collaborating or discussing data engineering opportunities? Let's talk!
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <a href="mailto:vsumanth989@gmail.com" class="card p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <svg class="w-12 h-12 text-cyan-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <p class="text-sm text-slate-400 mb-2">Email</p>
+                    <p class="text-sm text-slate-200 font-semibold">vsumanth989@gmail.com</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/sumanth-vadlamudi" target="_blank" rel="noopener noreferrer" class="card p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <svg class="w-12 h-12 text-cyan-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <p class="text-sm text-slate-400 mb-2">LinkedIn</p>
+                    <p class="text-sm text-slate-200 font-semibold">Connect with me</p>
+                </a>
+                
+                <div class="card p-8 rounded-2xl">
+                    <svg class="w-12 h-12 text-cyan-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <p class="text-sm text-slate-400 mb-2">Phone</p>
+                    <p class="text-sm text-slate-200 font-semibold">256-856-5606</p>
+                </div>
+            </div>
+            
+            <div class="card p-8 rounded-2xl inline-block">
+                <p class="text-slate-400 text-sm">
+                    © 2025 Vadlamudi Sumanth. Built with passion for data engineering.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav', 'shadow-2xl');
+            } else {
+                navbar.classList.remove('glass-nav', 'shadow-2xl');
+            }
+        });
+
+        // Active navigation highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyan-400', 'font-semibold');
+                link.classList.add('text-slate-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-slate-300');
+                    link.classList.add('text-cyan-400', 'font-semibold');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entr
